@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd"
+default-autowire="constructor">
+
+    <bean id="studentDao" class="com.itbaizhan.dao.StudentDaoImpl"></bean>
+    <bean id="studentService2" class="com.itbaizhan.service.StudentService2">
+        <!-- 注入bean类型 写法一 -->
+<!--        <property name="studentDao" ref="studentDao"></property>-->
+        <!-- 注入bean类型 写法二 -->
+        <property name="studentDao">
+            <ref bean="studentDao"></ref>
+        </property>
+
+        <!-- 注入简单类型 写法一 -->
+        <property name="name" value="百战"></property>
+        <!-- 注入简单类型 写法二 -->
+        <property name="count">
+            <value>10</value>
+        </property>
+
+        <!-- 注入简单数据类型的List集合  -->
+        <property name="names">
+            <list>
+                <value>尚学堂</value>
+                <value>百战程序员</value>
+            </list>
+        </property>
+        <!-- 注入对象类型的List集合  -->
+        <property name="students1">
+            <list>
+                <bean class="com.itbaizhan.domain.Student">
+                    <property name="id" value="1"></property>
+                    <property name="name" value="尚学堂"></property>
+                    <property name="address" value="北京"></property>
+                </bean>
+                <bean class="com.itbaizhan.domain.Student">
+                    <property name="id" value="2"></property>
+                    <property name="name" value="百战"></property>
+                    <property name="address" value="北京"></property>
+                </bean>
+            </list>
+        </property>
+        <!-- 注入对象类型的Set集合  -->
+        <property name="students2">
+            <set>
+                <bean class="com.itbaizhan.domain.Student">
+                    <property name="id" value="1"></property>
+                    <property name="name" value="尚学堂"></property>
+                    <property name="address" value="北京"></property>
+                </bean>
+                <bean class="com.itbaizhan.domain.Student">
+                    <property name="id" value="2"></property>
+                    <property name="name" value="百战"></property>
+                    <property name="address" value="北京"></property>
+                </bean>
+            </set>
+        </property>
+        <!-- 注入简单数据类型的Map集合  -->
+        <property name="names2">
+            <map>
+                <entry key="student1" value="bz"></entry>
+                <entry key="student2" value="sxt"></entry>
+            </map>
+        </property>
+        <!-- 注入对象数据类型的Map集合 -->
+        <property name="students3">
+            <map>
+                <entry key="student1" value-ref="s1"></entry>
+                <entry key="student2" value-ref="s2"></entry>
+            </map>
+        </property>
+        <!-- 注入Properties对象 -->
+        <property name="properties">
+            <props>
+                <prop key="配置1">值1</prop>
+                <prop key="配置2">值2</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="s1" class="com.itbaizhan.domain.Student">
+        <property name="id" value="1"></property>
+        <property name="name" value="尚学堂"></property>
+        <property name="address" value="北京"></property>
+    </bean>
+    <bean id="s2" class="com.itbaizhan.domain.Student">
+        <property name="id" value="2"></property>
+        <property name="name" value="百战"></property>
+        <property name="address" value="北京"></property>
+    </bean>
+</beans>

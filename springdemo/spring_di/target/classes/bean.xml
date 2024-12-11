@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="studentDao" class="com.itbaizhan.dao.StudentDaoImpl"></bean>
+    <bean id="studentService" class="com.itbaizhan.service.StudentService">
+        <!-- setter依赖注入 name:对象的属性名 ref：容器中对象的ID值-->
+<!--        <property name="studentDao" ref="studentDao"></property>-->
+        <!-- 构造方法依赖注入 name:对象的属性名 ref：容器中对象的ID值-->
+        <constructor-arg name="studentDao" ref="studentDao"></constructor-arg>
+    </bean>
+</beans>

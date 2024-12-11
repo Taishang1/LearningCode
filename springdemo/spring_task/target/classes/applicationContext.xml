@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.2.xsd
+        http://www.springframework.org/schema/task
+        http://www.springframework.org/schema/task/spring-task-3.2.xsd">
+
+    <context:component-scan base-package="com.itbaizhan"></context:component-scan>
+
+    <!--开启注解任务-->
+    <task:annotation-driven />
+
+    <!-- 配置执行定时任务的对象、方法、时间 -->
+<!--    <task:scheduled-tasks>-->
+<!--        <task:scheduled ref="mySpringTask" method="printTime" cron="5,10,15,20,25,30 * * * * *"/>-->
+<!--        <task:scheduled ref="mySpringTask" method="printTime" cron="5-20 * * * * *"/>-->
+<!--        <task:scheduled ref="mySpringTask" method="printTime" cron="5/10 * * * * *"/>-->
+<!--        <task:scheduled ref="mySpringTask" method="printTime" cron="0 5,10 8 * * *"/>-->
+<!--        <task:scheduled ref="mySpringTask" method="printTime" cron="0 0 18 LW * ?"/>-->
+<!--        <task:scheduled ref="mySpringTask" method="printTime" cron="0 0 18 * 6-8 *"/>-->
+<!--        <task:scheduled ref="mySpringTask" method="printTime" cron="0 0 18 ? * 6L"/>-->
+<!--        <task:scheduled ref="mySpringTask" method="printTime" cron="0 0 18 20 * ?"/>-->
+<!--    </task:scheduled-tasks>-->
+
+    <!--
+        每隔5分钟触发一次                       0 0/5 * * * *
+        每小时触发一次                         0 0 * * * *
+        每天的7点30分触发                      0 30 7 * * *
+        周一到周五的早上6点30分触发             0 30 6 ? * 2-6
+        每月最后一天早上10点触发                0 0 10 L * ?
+        每月最后一个工作日的18点30分触发          0 30 18 LW * ?
+        2030年8月每个星期六和星期日早上10点触发    0 0 10 ? 8 1,7 2030
+        每天10点、12点、14点触发                 0 0 10,12,14 * * *
+        朝九晚五工作时间内每半小时触发一次        0 0 0/30 9-17 ? * 2-6
+        每周三中午12点触发一次                   0 0 12 ? * 4
+        每天12点触发一次                         0 0 12 * * *
+        每天14点到14:59每分钟触发一次             0 * 14 * * *
+        每天14点到14:59每5分钟触发一次            0 0/5 14 * * *
+        每天14点到14:05每分钟触发一次             0 0-5 14 * * *
+        每月15日上午10:15触发                    0 15 10 15 * ?
+        每月最后一天的上午10:15触发               0 15 10 L * ?
+        每月的第三个星期五上午10:15触发           0 15 10 ? * 6#3
+    -->
+</beans>

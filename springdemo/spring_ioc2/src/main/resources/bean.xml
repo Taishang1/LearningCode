@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 默认用无参构造方法创建对象   -->
+<!--    <bean id="studentDao" class="com.itbaizhan.dao.StudentDaoImpl"></bean>-->
+    <!-- 用工厂类的方法创建对象   -->
+<!--    <bean id="studentDaoFactory" class="com.itbaizhan.dao.StudentDaoFactory"></bean>-->
+<!--    <bean id="studentDao" factory-bean="studentDaoFactory" factory-method="getStudentDao"></bean>-->
+    <!-- 用工厂类的静态方法创建对象   -->
+    <bean id="studentDao" class="com.itbaizhan.dao.StudentDaoFactory2" factory-method="getStudentDao"></bean>
+</beans>
